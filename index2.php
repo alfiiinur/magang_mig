@@ -11,7 +11,6 @@ $oldDbUser = '';
 $oldDbPass = '';
 $newDbName = '';
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $oldDbName = isset($_POST['oldDbName']) ? $_POST['oldDbName'] : '';
     $oldDbUser = isset($_POST['oldDbUser']) ? $_POST['oldDbUser'] : '';
@@ -64,8 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // echo '<div class="alert alert-danger" role="alert">Connection failed: ' . $e->getMessage() . '</div>';
     }
 }
-
-
 ?>
 
 
@@ -101,10 +98,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+
     <div id="notification" class="alert alert-info" style="display:none;" role="alert">
         Migrasi database sedang dilakukan...
     </div>
-
 
     <!---header-and-banner-section-->
     <section class="multi_step_form w-100 float-left form-main-con pt-4 padding-bottom " id="Contact">
@@ -127,13 +124,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <li><span class="ion-ios-folder-outline"></span> Migrate File </li>
                             <li><span class="ion-ios-compose"></span> Selesai </li>
                         </ul>
+                        <!-- fieldsets -->
 
-                        <?php if(isset($_SESSION['message'])): ?>
-                        <div class="alert alert-info" role="alert">
-                            <?= $_SESSION['message']; ?>
-                        </div>
-                        <?php unset($_SESSION['message']); ?>
-                        <?php endif; ?>
                         <fieldset>
                             <div class="row">
                                 <div class="col-lg-12">
@@ -143,78 +135,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div id="contactpage"
                                         class="contact-form wow slideInRight text-lg-left text-center">
                                         <div class="row">
-                                            <div class="col-lg-12 col-md-12">
-                                                <div class=" form-group mb-0 text-center mt-3">
-                                                    <h4>BUTTON MIGRATE ONE TABLE DATABASE</h4>
-                                                    <form method="POST" action="" class="flex justfy-between m-3 " onsubmit="showNotification()">
-                                                        <input type="submit" class="btn btn-primary" name="setmenu"
-                                                            value="setmenu">
-                                                        <input type="submit" class="btn btn-primary" name="pubbanner"
-                                                            value="pubbanner">
-                                                        <input type="submit" class="btn btn-primary" name="pesan"
-                                                            value="pesan">
-                                                        <input type="submit" class="btn btn-primary" name="category"
-                                                            value="category">
-                                                        <input type="submit" class="btn btn-primary" name="jabdept"
-                                                            value="jabdept">
-                                                        <input type="submit" class="btn btn-primary" name="setpage"
-                                                            value="setpage">
-                                                        <input type="submit" class="btn btn-primary" name="roles"
-                                                            value="roles">
-                                                        <input type="submit" class="btn btn-primary" name="rules"
-                                                            value="rules">
-                                                        <input type="submit" class="btn btn-primary" name="filePost"
-                                                            value="filePost">
-                                                        <input type="submit" class="btn btn-primary" name="setuser"
-                                                            value="setuser">
-                                                        <input type="submit" class="btn btn-primary" name="profile"
-                                                            value="profile">
-                                                        <input type="submit" class="btn btn-primary" name="employess"
-                                                            value="employess">
-                                                    </form>
-                                                    <form method="POST" action="" class="flex justfy-between m-3 " onsubmit="showNotification()">
-                                                        <!-- lanjutan -->
-                                                        <input type="submit" class="btn btn-primary" name="social"
-                                                            value="social">
-                                                        <input type="submit" class="btn btn-primary" name="vidios"
-                                                            value="vidios">
-                                                        <input type="submit" class="btn btn-primary" name="dinas"
-                                                            value="dinas">
-                                                        <input type="submit" class="btn btn-primary" name="counternews"
-                                                            value="counternews">
-                                                        <input type="submit" class="btn btn-primary" name="counterpost"
-                                                            value="counterpost">
-                                                        <input type="submit" class="btn btn-primary" name="ppidpost"
-                                                            value="ppidpost">
-                                                        <input type="submit" class="btn btn-primary"
-                                                            name="counterpengumumna" value="counterpengumumna">
-                                                        <input type="submit" class="btn btn-primary" name="download"
-                                                            value="download">
-                                                        <input type="submit" class="btn btn-primary" name="serv"
-                                                            value="serv">
-                                                        <input type="submit" class="btn btn-primary" name="visit"
-                                                            value="visit">
-                                                        <input type="submit" class="btn btn-primary" name="setform"
-                                                            value="setform">
-                                                    </form>
-                                                    <!-- BUTTON ALL TABLE -->
+                                            <div class="col-lg-12 col-md-6">
+                                                <div class=" form-group mb-0 text-center">
+                                                <h4>BUTTON MIGRATE ONE TABLE DATABASE</h4>
                                                     <div class="container mt-3">
-                                                        <h4>BUTTON MIGRATE ALL TABLE DATABASE</h4>
-                                                        <a href="index2.php" class="btn btn-warning">migrateAllTables</a>
-                                                        <!-- <form method="POST" action="" class="flex justfy-between m-3 " onsubmit="showNotification()">
-                                                            <input type="submit" class="btn btn-warning"
-                                                                name="migrateAll" value="Migrate All Tables">
-                                                        </form> -->
+                                                        <!-- <input type="submit" class="btn btn-success" name="migrateTable"
+                                                                value="Migrate New Tables"> -->
+                                                                <a href="index.php" class="btn btn-primary">Migrate One Tabel Database</a>
                                                     </div>
-                                                    <!-- BUTTON ALL TABLE DEFAULT -->
-                                                    <div class="container mt-3">
-                                                        <h4>BUTTON MIGRATE ALL TABLE DEFAULT</h4>
-                                                        <form method="POST" action="" class="flex justfy-between m-3 " onsubmit="showNotification()"> 
-                                                            <!-- <input type="submit" class="btn btn-success"
-                                                                name="migrateTable" value="Migrate All Tables Default"> -->
-                                                                <a href="index2.php" class="btn btn-success">migrateDefault Tables</a>
+                                                    <h4>BUTTON MIGRATE ALL TABLE DATABASE</h4>
+                                                    <form method="POST" action=""  onsubmit="showNotification()">
+                                                        <input type="submit" class="btn btn-warning" name="migrateAll"
+                                                            value="Migrate All Tables">
+                                                        </form>
+                                                        <h4>BUTTON MIGRATE DEFAULT TABLE DATABASE</h4>
+                                                        <div class="container mt-3"> 
+                                                            <form method="POST" action=""  onsubmit="showNotification()">
+                                                                <input type="submit" class="btn btn-success" name="migrateTable"
+                                                                    value="Migrate New Tables">
                                                             </form>
-                                                    </div>
+                                                        </div>
                                                     <?php
                                                     // Fungsi migrasi untuk tabel pertama
                                                     function setMenu($oldDb, $newDb) {
@@ -236,11 +176,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'set_menu' created successfully.";
+                                                    echo "Table 'set_menu' created successfully.";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'set_menu'.";
+                                                    echo "Error creating table 'set_menu'.<br>";
                                                     }
-                                                   
+
 
                                                     // Insert data set menu
                                                     $categories = array(
@@ -291,10 +231,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                        $_SESSION['message'] = "Migration 'set_menu' created successfully.<br>";
+                                                    echo "<br>Migration for set_menu successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                        $_SESSION['message'] = "<br>Migration  'set_menu' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -305,7 +245,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     DROP TABLE IF EXISTS `pub_banner` ;
                                                     CREATE TABLE IF NOT EXISTS `pub_banner` (
                                                     `ban_id` varchar(10) NOT NULL,
-                                                    `ban_title` varchar(50) NOT NULL,
+                                                    `ban_title` varchar(100) NOT NULL,
                                                     `ban_desk` tinytext,
                                                     `ban_img` varchar(30) DEFAULT NULL,
                                                     `ban_stat` char(3) NOT NULL,
@@ -318,12 +258,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     )";
 
                                                     $newDb->exec($createTableQuery);
-
-                                                    if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'pub_banner' created successfully.";
-                                                    } else {
-                                                        $_SESSION['message'] = "Error creating table 'pub_banner'.";
-                                                    }
 
                                                     // Mengambil data dari tabel lama
                                                     $stmt = $oldDb->prepare("SELECT * FROM tb_banners WHERE category = '2' ");
@@ -360,10 +294,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'pub_banner' created successfully.<br>";
+                                                    echo "Migration for Table data pub_baner successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'pub_banner' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -385,9 +319,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'pesan' created successfully.";
+                                                    echo "Table 'pesan' created successfully.<br> ";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'pesan'.";
+                                                    echo "Error creating table 'pesan'.<br>";
                                                     }
 
                                                     }
@@ -415,11 +349,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'set_menu' created successfully.";
+                                                    echo "Table 'set_category' created successfully. <br>";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'set_menu'.";
+                                                    echo "Error creating table 'set_category'.<br>";
                                                     }
-                                                   
 
                                                     // Mendefinisikan nilai default
                                                     $defaultActive = '1';
@@ -460,10 +393,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'set_category' created successfully.<br>";
+                                                    echo "Migration for set_category successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'set_category' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -492,9 +425,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'set_jabdept' created successfully.";
+                                                    echo "Table 'set_jabdept' created successfully. <br>";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'set_jabdept'.";
+                                                    echo "Error creating table 'set_jabdept'.<br>";
                                                     }
 
                                                     // Insert data set menu
@@ -523,10 +456,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'set_jabdept' created successfully.<br>";
+                                                    echo "Migration for set_jabdept successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'set_jabdept' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -551,9 +484,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'set_page' created successfully.";
+                                                    echo "Table 'set_page' created successfully. <br>";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'set_page'.";
+                                                    echo "Error creating table 'set_page'.<br>";
                                                     }
 
                                                     // Insert data kategori
@@ -616,11 +549,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'set_page' created successfully.<br>";
+                                                    echo "Migration for set_page successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'set_page' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
+
                                                     }
 
 
@@ -643,9 +577,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'set_role' created successfully.";
+                                                    echo "Table 'set_role' created successfully. <br>";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'set_role'.";
+                                                    echo "Error creating table 'set_role'.<br>";
                                                     }
 
                                                     $categories = array(
@@ -673,10 +607,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'set_role' created successfully.<br>";
+                                                    echo "Migration for set_role successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'set_role' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
 
 
@@ -705,10 +639,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'set_rules' created successfully.";
+                                                    echo "Table 'set_rules' created successfully. <br>";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'set_rules'.";
+                                                    echo "Error creating table 'set_rules'.<br>";
                                                     }
+
 
                                                     $categories = array(
                                                     array('001', '001', '1', '1', '1', '1', '1', '111111111111111111', '2023-07-17', '1564468378', '2024-04-23'),
@@ -758,10 +693,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'set_rules' created successfully.<br>";
+                                                    echo "Migration for set_rules successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'set_rules' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -786,9 +721,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'pub_files' created successfully.";
+                                                    echo "Table 'pub_files' created successfully.";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'pub_files'.";
+                                                    echo "Error creating table 'pub_files'.<br>";
                                                     }
 
                                                     // Mengambil data dari tabel lama
@@ -830,10 +765,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'pub_files' created successfully.<br>";
+                                                    echo "Migration for Table pub_files successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'pub_files' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -861,9 +796,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $cre_date = date('Y-m-d');
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'set_user' created successfully.";
+                                                    echo "Table 'set_user' created successfully.";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'set_user'.";
+                                                    echo "Error creating table 'set_user'.<br>";
                                                     }
 
 
@@ -898,10 +833,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'set_user' created successfully.<br>";
+                                                    echo "Migration for set_user successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'set_user' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -913,10 +848,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     CREATE TABLE IF NOT EXISTS `pub_profile` (
                                                     `prof_id` varchar(10) NOT NULL,
                                                     `prof_lnm` varchar(50) NOT NULL,
-                                                    `prof_snm` varchar(50) NOT NULL,
+                                                    `prof_snm` varchar(20) NOT NULL,
                                                     `prof_addr` tinytext NOT NULL,
-                                                    `prof_fax` varchar(50) NOT NULL,
-                                                    `prof_telp` varchar(20) NOT NULL,
+                                                    `prof_fax` varchar(20) NOT NULL,
+                                                    `prof_telp` varchar(13) NOT NULL,
                                                     `prof_mail` varchar(50) NOT NULL,
                                                     `prof_pwd` varchar(50) DEFAULT NULL,
                                                     `prof_maps` varchar(50) NOT NULL,
@@ -936,9 +871,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'pub_profile' created successfully.";
+                                                    echo "Table 'pub_profile' created successfully. <br>";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'pub_profile'.";
+                                                    echo "Error creating table 'pub_profile'.<br>";
                                                     }
 
 
@@ -952,9 +887,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                                                     $stmtBaru = $newDb->prepare("INSERT INTO `pub_profile` (`prof_id`, `prof_lnm`, `prof_snm`, `prof_addr`, `prof_fax`,
-                                                    `prof_telp`, `prof_mail`,`prof_pwd`, `prof_maps`, `prof_skm`, `prof_desk`, `prof_lg`,`prof_sty`, `_active`, `_cre`,
+                                                    `prof_telp`, `prof_mail`,`prof_pwd`, `prof_maps`, `prof_skm`, `prof_desk`, `prof_lg`, prof_sty`,`_active`, `_cre`,
                                                     `_cre_date`, `_chg`, `_chg_date`) VALUES (:prof_id, :prof_lnm, :prof_snm, :prof_addr, :prof_fax, :prof_telp,
-                                                    :prof_mail, :prof_pwd, :prof_maps, :prof_skm, :prof_desk, :prof_lg,:prof_sty, :_active, :_cre, :_cre_date, :_chg,
+                                                    :prof_mail, :prof_pwd, :prof_maps, :prof_skm, :prof_desk, :prof_lg, :_active, :_cre, :_cre_date, :_chg,
                                                     :_chg_date)");
 
                                                     // Begin transaction
@@ -984,11 +919,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     ]);
 
 
+                                                    // Commit the transaction
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'pub_profile' created successfully.<br>";
+                                                    echo "Data inserted into 'pub_profile' successfully.<br>";
                                                     } catch (PDOException $e) {
+                                                    // Rollback the transaction if an error occurred
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'pub_profile' failed ". $e->getMessage()."<br>";
+                                                    echo "Insertion failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -1022,9 +959,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                     // Periksa apakah tabel berhasil dibuat
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'pub_employess' created successfully.";
+                                                    echo "Table 'pub_employees' created successfully.<br>";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'pub_employess'.";
+                                                    echo "Error creating table 'pub_employees'.<br>";
                                                     }
 
                                                     // Mengambil data dari tabel lama
@@ -1075,10 +1012,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                     // Commit transaksi jika semua data berhasil disisipkan
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'pub_employees' created successfully.<br>";
+                                                    echo "Migration for Table 'pub_employees' successful.<br>";
                                                     } catch (PDOException $e) {
+                                                    // Rollback transaksi jika terjadi kesalahan
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'pub_employees' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -1106,9 +1044,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'pub_socials' created successfully.";
+                                                    echo "Table 'pub_socials' created successfully.";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'pub_socials'.";
+                                                    echo "Error creating table 'pub_socials'.<br>";
                                                     }
 
                                                     // Fetch data from the old table
@@ -1145,20 +1083,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'pub_socials' created successfully.<br>";
+                                                    echo "Migration for Table pub_socials successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'pub_socials' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
 
 
                                                     function pubVidios($oldDb, $newDb) {
-                                                        //delete untuk vidio cat == 003
-                                                        $stmtDel = $newDb->prepare("DELETE FROM pub_socials WHERE cat = '003'");
-                                                        $stmtDel -> execute();
-
                                                         // Mengambil data dari tabel lama
                                                         $stmt = $oldDb->prepare("SELECT * FROM tb_video");
                                                         $stmt->execute();
@@ -1194,10 +1128,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                         }
     
                                                         $newDb->commit();
-                                                        $_SESSION['message'] = "Migration 'pub_vidios for socials' created successfully.<br>";
+                                                        echo "Migration for pub_vidios successful.<br>";
                                                         } catch (PDOException $e) {
                                                         $newDb->rollBack();
-                                                        $_SESSION['message'] = "<br>Migration  'pub_vidios for socials' failed ". $e->getMessage()."<br>";
+                                                        echo "Migration failed: " . $e->getMessage() . "<br>";
                                                         }
                                                         }
 
@@ -1237,10 +1171,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'tb_dinas to socials' created successfully.<br>";
+                                                    echo "Migration for Table pub_socials successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'tb_dinas to socials' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
 
                                                     }
@@ -1271,9 +1205,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'pub_post' created successfully.";
+                                                    echo "Table 'pub_post' created successfully.";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'pub_post'.";
+                                                    echo "Error creating table 'pub_post'.<br>";
                                                     }
 
                                                     // Mengambil data dari tabel news
@@ -1300,16 +1234,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $datetimeobj = strtotime($datetime);
                                                     $dateconv = date("Y-m-d", $datetimeobj);
 
-
                                                     $stmtBaru->execute([
                                                     ':post_id' => $row['id'],
-                                                    ':post_judul' => $row['title'], 
-                                                    ':post_desk' => $row['description'], 
-                                                    ':post_publish' => $dateconv, 
-                                                    ':post_datex' => NULL, 
-                                                    ':post_img' => $row['img'], 
-                                                    ':post_see' => $row['total'], 
-                                                    ':ca_id' => str_pad($row['category'], 3, '0', STR_PAD_LEFT), 
+                                                    ':post_judul' => $row['title'], // Adjust as per your data source
+                                                    ':post_desk' => $row['description'], // Adjust as per your data source
+                                                    ':post_publish' => $dateconv, // Adjust as per your data source
+                                                    ':post_datex' => NULL, // Adjust as per your data source
+                                                    ':post_img' => $row['img'], // Adjust as per your data source
+                                                    ':post_see' => $row['total'], // Adjust as per your data source
+                                                    ':ca_id' => str_pad($row['category'], 3, '0', STR_PAD_LEFT), // Adjust as per your data source
                                                     ':_active' => $row['status'],
                                                     ':_cre' => str_repeat('1', 18),
                                                     ':_cre_date' => date('Y-m-d'),
@@ -1319,10 +1252,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'pub_post' created successfully.<br>";
+                                                    echo "Migration for Table pub_post successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'pub_post' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -1435,11 +1368,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                             }
                                                     
                                                             $newDb->commit();
-                                                            $_SESSION['message'] = "Migration 'ppid_post for post' created successfully.<br>";
-                                                            } catch (PDOException $e) {
+                                                            echo "Migration for PPID_POST successful.<br>";
+                                                        } catch (PDOException $e) {
                                                             $newDb->rollBack();
-                                                            $_SESSION['message'] = "<br>Migration  'ppid_post for post' failed ". $e->getMessage()."<br>";
-                                                            }
+                                                            echo "Migration failed: " . $e->getMessage() . "<br>";
+                                                        }
                                                     }
 
                                                     
@@ -1471,33 +1404,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $tim = strtotime($date_only);
                                                     $formatdatestr = date("Y-m-d", $tim);
                                                     // if ($datetimestr === null) {
-                                                    // $formatdatestr = '0000-00-00';
-                                                    // } else {
-                                                    // $dateObj = DateTime::createFromFormat('l d F Y - H:i', $datetimestr);
-                                                    // if ($dateObj) {
-                                                    // $datestr = $dateObj->format('d F Y');
-                                                    // $converttiemstr = strtotime($datestr);
-                                                    // $formatdatestr = date('Y-m-d', $converttiemstr);
-                                                    // } else {
-                                                    // // Jika format tanggal tidak sesuai, atur tanggal ke '0000-00-00'
-                                                    // $formatdatestr = '0000-00-00';
-                                                    // }
+                                                    //     $formatdatestr = '0000-00-00';
+                                                    //     } else {
+                                                    //     $dateObj = DateTime::createFromFormat('l d F Y - H:i', $datetimestr);
+                                                    //         if ($dateObj) {
+                                                    //             $datestr = $dateObj->format('d F Y');
+                                                    //             $converttiemstr = strtotime($datestr);
+                                                    //             $formatdatestr = date('Y-m-d', $converttiemstr);
+                                                    //         } else {
+                                                    //         // Jika format tanggal tidak sesuai, atur tanggal ke '0000-00-00'
+                                                    //             $formatdatestr = '0000-00-00';
+                                                    //     }
                                                     // }
                                                     //conv datetime
                                                     $datetime = $row['datesubmit'];
                                                     $datetimeobj = new DateTime($datetime);
                                                     $dateconv = $datetimeobj -> format('Y-m-d');
 
-
                                                     $stmtBaru->execute([
                                                     ':post_id' => $row['id'],
-                                                    ':post_judul' => $row['title'], 
-                                                    ':post_desk' => $row['description'], 
-                                                    ':post_publish' => $formatdatestr, 
-                                                    ':post_datex' => $dateconv, 
-                                                    ':post_img' => $row['img'], 
-                                                    ':post_see' => $row['total'], 
-                                                    ':ca_id' => '002' , 
+                                                    ':post_judul' => $row['title'], // Adjust as per your data source
+                                                    ':post_desk' => $row['description'], // Adjust as per your data source
+                                                    ':post_publish' => $formatdatestr, // Adjust as per your data source
+                                                    ':post_datex' => $dateconv, // Adjust as per your data source
+                                                    ':post_img' => $row['img'], // Adjust as per your data source
+                                                    ':post_see' => $row['total'], // Adjust as per your data source
+                                                    ':ca_id' => '002' , // Adjust as per your data source
                                                     ':_active' =>1,
                                                     ':_cre' => str_repeat('1', 18),
                                                     ':_cre_date' => date('Y-m-d'),
@@ -1507,10 +1439,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'tb_event to pub_post' created successfully.<br>";
+                                                    echo "Migration for Table pub_post successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'tb_event to pub_post' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -1539,13 +1471,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                     $stmtBaru->execute([
                                                     ':post_id' => $row['id'],
-                                                    ':post_judul' => $row['title'], 
-                                                    ':post_desk' => $row['description'], 
-                                                    ':post_publish' => $row['date'], 
-                                                    ':post_datex' => $row['datex'], 
-                                                    ':post_img' => '' , 
-                                                    ':post_see' => '', 
-                                                    ':ca_id' => '003', 
+                                                    ':post_judul' => $row['title'], // Adjust as per your data source
+                                                    ':post_desk' => $row['description'], // Adjust as per your data source
+                                                    ':post_publish' => $row['date'], // Adjust as per your data source
+                                                    ':post_datex' => $row['datex'], // Adjust as per your data source
+                                                    ':post_img' => '' , // Adjust as per your data source
+                                                    ':post_see' => '', // Adjust as per your data source
+                                                    ':ca_id' => '003', // Adjust as per your data source
                                                     ':_active' =>$row['status'],
                                                     ':_cre' => str_repeat('1', 18),
                                                     ':_cre_date' => date('Y-m-d'),
@@ -1555,10 +1487,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'tb_pengumuman for pub_post' created successfully.<br>";
+                                                    echo "Migration for pub_post successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'tb_pengumuman for pub_post' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -1589,13 +1521,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                     $stmtBaru->execute([
                                                     ':post_id' => $row['id'],
-                                                    ':post_judul' => $row['title'], 
-                                                    ':post_desk' => $row['description'], 
-                                                    ':post_publish' => $date_pub, 
-                                                    ':post_datex' => NULL, 
-                                                    ':post_img' => '' , 
-                                                    ':post_see' => '', 
-                                                    ':ca_id' => '004', 
+                                                    ':post_judul' => $row['title'], // Adjust as per your data source
+                                                    ':post_desk' => $row['description'], // Adjust as per your data source
+                                                    ':post_publish' => $date_pub, // Adjust as per your data source
+                                                    ':post_datex' => NULL, // Adjust as per your data source
+                                                    ':post_img' => '' , // Adjust as per your data source
+                                                    ':post_see' => '', // Adjust as per your data source
+                                                    ':ca_id' => '004', // Adjust as per your data source
                                                     ':_active' =>1,
                                                     ':_cre' => str_repeat('1', 18),
                                                     ':_cre_date' => date('Y-m-d'),
@@ -1605,10 +1537,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'tb_download for pub_post' created successfully.<br>";
+                                                    echo "Migration for pub_post successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'tb_download for pub_post' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -1637,13 +1569,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                     $stmtBaru->execute([
                                                     ':post_id' => $row['id'],
-                                                    ':post_judul' => $row['name'], 
-                                                    ':post_desk' => $row['description'], 
-                                                    ':post_publish' => $date_pub, 
-                                                    ':post_datex' => NULL, 
-                                                    ':post_img' => '' , 
-                                                    ':post_see' => '', 
-                                                    ':ca_id' => '005', 
+                                                    ':post_judul' => $row['name'], // Adjust as per your data source
+                                                    ':post_desk' => $row['description'], // Adjust as per your data source
+                                                    ':post_publish' => $date_pub, // Adjust as per your data source
+                                                    ':post_datex' => NULL, // Adjust as per your data source
+                                                    ':post_img' => '' , // Adjust as per your data source
+                                                    ':post_see' => '', // Adjust as per your data source
+                                                    ':ca_id' => '005', // Adjust as per your data source
                                                     ':_active' =>$row['status'],
                                                     ':_cre' => str_repeat('1', 18),
                                                     ':_cre_date' => date('Y-m-d'),
@@ -1653,14 +1585,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'tb_servis for pub_post' created successfully.<br>";
+                                                    echo "Migration for pub_post successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'tb_servis for pub_post' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
-                                                    function visited($oldDb, $newDb){
+                                                    function visit($oldDb, $newDb){
                                                     $createTableQuery = "CREATE TABLE IF NOT EXISTS `visitors` (
                                                     `vs_id` varchar(10) NOT NULL,
                                                     `vs_ip` varchar(45) NOT NULL,
@@ -1674,9 +1606,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'visited' created successfully.";
+                                                    echo "Table 'visitor' created successfully. <br>";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'visited'.";
+                                                    echo "Error creating table 'visitor'.<br>";
                                                     }
                                                     }
 
@@ -1699,12 +1631,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                                     $newDb->exec($createTableQuery);
 
-                                                    if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'set_form' created successfully.";
-                                                    } else {
-                                                        $_SESSION['message'] = "Error creating table 'set_form'.";
-                                                    }
-
                                                     // Insert data kategori
                                                     $categories = array(
                                                     array('001', 'Form Berita', '_page-post', '1', '555', '2023-03-20', '555', '2023-05-02'),
@@ -1718,8 +1644,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     VALUES (:fm_id, :fm_name, :fm_file, :_active, :_cre, :_cre_date, :_chg, :_chg_date)");
 
                                                     $newDb->beginTransaction();
-
-
 
                                                     try {
                                                     foreach ($categories as $category) {
@@ -1736,10 +1660,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     }
 
                                                     $newDb->commit();
-                                                    $_SESSION['message'] = "Migration 'set_form' created successfully.<br>";
+                                                    echo "Migration for set_form successful.<br>";
                                                     } catch (PDOException $e) {
                                                     $newDb->rollBack();
-                                                    $_SESSION['message'] = "<br>Migration  'set_form' failed ". $e->getMessage()."<br>";
+                                                    echo "Migration failed: " . $e->getMessage() . "<br>";
                                                     }
                                                     }
 
@@ -1766,420 +1690,94 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                     $newDb->exec($createTableQuery);
 
                                                     if ($newDb->exec($createTableQuery) !== false) {
-                                                        $_SESSION['message'] = "Table 'pub_Post' created successfully.";
+                                                    echo "Table 'pub_post' created successfully.";
                                                     } else {
-                                                        $_SESSION['message'] = "Error creating table 'pub_Post'.";
+                                                    echo "Error creating table 'pub_post'.<br>";
                                                     }
                                                     }
 
-
-                                                    // FUNGSI KONEKSI 
-                                                    function createDbConnection($dbDetails) {
-                                                        $db = new PDO("mysql:host=localhost;dbname={$dbDetails['name']}", $dbDetails['user'], $dbDetails['pass']);
-                                                        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                                                        return $db;
-                                                    }
-
-                                                    function setMen($oldDb, $newDb) {
+                                                    function migrateAllTables($oldDb, $newDb) {
                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                            setMenu($oldDb, $newDb);
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-
-                                                    function banner($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                            pubBanner($oldDb, $newDb);
-                                                          
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-
-                                                    function pesann($oldDb, $newDb) {
-                                                        if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                             pesan($oldDb, $newDb);
+                                                            $oldDbDetails = $_SESSION['oldDbDetails'];
+                                                            $newDbDetails = $_SESSION['newDbDetails'];
+                                                            // Buat koneksi ke database lama
+                                                            $oldDb = new PDO("mysql:host=localhost;dbname={$oldDbDetails['name']}",
+                                                                $oldDbDetails['user'], $oldDbDetails['pass']);
+                                                            $oldDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                                     
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function category($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                           
-                                                             setCategory($oldDb, $newDb);
-                                                         
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-
-                                                    function jabdep($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                
-                                                             setJabdept($oldDb, $newDb);
-                                                           
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-
-                                                    function pagee($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                    
-                                                             setPage($oldDb, $newDb);
-                                              
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function roless($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                        
-                                                             setRoles($oldDb, $newDb);
-                                              
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-
-                                                    function ruless($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
+                                                            // Buat koneksi ke database baru
+                                                            $newDb = new PDO("mysql:host=localhost;dbname={$newDbDetails['name']}",
+                                                                $newDbDetails['user'], $newDbDetails['pass']);
+                                                            $newDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                             
-                                                             setRules($oldDb, $newDb);
-                                                         
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function postFile($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                        
-                                                             filePost($oldDb, $newDb);
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function userd($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                        setUser($oldDb, $newDb);
-                                    
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function profil($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
+                                                             // Panggil fungsi migrasi untuk setiap tabel yang ingin Anda pindahkan
+                                                    setMenu($oldDb, $newDb);
+                                                    pubBanner($oldDb, $newDb);
+                                                    pesan($oldDb, $newDb);
+                                                    setCategory($oldDb, $newDb);
+                                                    setJabdept($oldDb, $newDb);
+                                                    setPage($oldDb, $newDb);
+                                                    setRoles($oldDb, $newDb);
+                                                    setRules($oldDb, $newDb);
+                                                    filePost($oldDb, $newDb);
+                                                    setUser($oldDb, $newDb);
                                                     pubProfile($oldDb, $newDb);
-                                                  
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-                                                    function empploye($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                            
                                                     pubEmployes($oldDb, $newDb);
-                                                   
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-                                                    function social ($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
                                                     pubSocial($oldDb, $newDb);
-                                                    
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-                                                    function vidos ($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                        
                                                     pubVidios($oldDb, $newDb);
-                                                   
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-                                                    function dinas($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);                                
                                                     setDinasPub($oldDb, $newDb);
-                                                   
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-                                                    function news($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                   
                                                     pubCounterNews($oldDb, $newDb);
-    
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-                                                    function post($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
                                                     pubCounterPost($oldDb, $newDb);
-                    
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function ppdi($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                  
                                                     PPID_Post($oldDb, $newDb);
-                           
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function pengumuman($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                  
                                                     pubCounterPengumuman($oldDb, $newDb);
-                                                
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function download($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
                                                     pubDownloads($oldDb, $newDb);
-                                                
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function serv($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                  
                                                     pubServ($oldDb, $newDb);
-                                
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function visit($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                                   
-                                             
-                                                    visited($oldDb, $newDb);
-                                                  
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-
-                                                    function form($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);
-                                            
+                                                    visit($oldDb, $newDb);
                                                     set_form($oldDb, $newDb);
                                                         } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
-                                                        }
-                                                    }
-                                                    
-                                                    // ALL TABLES FROM DB
-                                                    function migrateAllTables($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);                                                    setMenu($oldDb, $newDb);
-                                                            pubBanner($oldDb, $newDb);
-                                                            pesan($oldDb, $newDb);
-                                                            setCategory($oldDb, $newDb);
-                                                            setJabdept($oldDb, $newDb);
-                                                            setPage($oldDb, $newDb);
-                                                            setRoles($oldDb, $newDb);
-                                                            setRules($oldDb, $newDb);
-                                                            filePost($oldDb, $newDb);
-                                                            setUser($oldDb, $newDb);
-                                                            pubProfile($oldDb, $newDb);
-                                                            pubEmployes($oldDb, $newDb);
-                                                            pubSocial($oldDb, $newDb);
-                                                            pubVidios($oldDb, $newDb);
-                                                            setDinasPub($oldDb, $newDb);
-                                                            pubCounterNews($oldDb, $newDb);
-                                                            pubCounterPost($oldDb, $newDb);
-                                                            PPID_Post($oldDb, $newDb);
-                                                            pubCounterPengumuman($oldDb, $newDb);
-                                                            pubDownloads($oldDb, $newDb);
-                                                            pubServ($oldDb, $newDb);
-                                                            visit($oldDb, $newDb);
-                                                            set_form($oldDb, $newDb);
-                                                        } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
+                                                            echo '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
                                                         }
                                                     }
 
-                                                    //DEAFULT TABLE MIGRATE
                                                     function migrateNewTable($oldDb, $newDb) {
-                                                         if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
-                                                            $oldDb = createDbConnection($_SESSION['oldDbDetails']);
-                                                            $newDb = createDbConnection($_SESSION['newDbDetails']);                                                    
-                                                            setMenu($oldDb, $newDb);
-                                                            setCategory($oldDb, $newDb);
-                                                            setJabdept($oldDb, $newDb);
-                                                            setPage($oldDb, $newDb);
-                                                            setRoles($oldDb, $newDb);
-                                                            setRules($oldDb, $newDb);
-                                                            pub_Post($oldDb, $newDb);
-                                                            PPID_Post($oldDb, $newDb);
-                                                            set_form($oldDb, $newDb);
+                                                        if (isset($_SESSION['oldDbDetails']) && isset($_SESSION['newDbDetails'])) {
+                                                            $oldDbDetails = $_SESSION['oldDbDetails'];
+                                                            $newDbDetails = $_SESSION['newDbDetails'];
+                                                            // Buat koneksi ke database lama
+                                                            $oldDb = new PDO("mysql:host=localhost;dbname={$oldDbDetails['name']}",
+                                                                $oldDbDetails['user'], $oldDbDetails['pass']);
+                                                            $oldDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                                    
+                                                            // Buat koneksi ke database baru
+                                                            $newDb = new PDO("mysql:host=localhost;dbname={$newDbDetails['name']}",
+                                                                $newDbDetails['user'], $newDbDetails['pass']);
+                                                            $newDb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                            
+                                                             // Panggil fungsi migrasi untuk setiap tabel yang ingin Anda pindahkan
+                                                    setMenu($oldDb, $newDb);
+                                                    setCategory($oldDb, $newDb);
+                                                    setJabdept($oldDb, $newDb);
+                                                    setPage($oldDb, $newDb);
+                                                    setRoles($oldDb, $newDb);
+                                                    setRules($oldDb, $newDb);
+                                                    pub_Post($oldDb, $newDb);
+                                                    PPID_Post($oldDb, $newDb);
+                                                    set_form($oldDb, $newDb);
                                                         } else {
-                                                            $_SESSION['message'] = '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
+                                                            echo '<div class="alert alert-danger" role="alert">Database connections not found.</div>';
                                                         }
                                                     }
 
-
-
-                                                    // Jika tombol Migrate ONE TABLE New Tables ditekan
-                                                    if (isset($_POST['setmenu'])) {
-                                                        setMen($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['pubbanner'])) {
-                                                        banner($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['pesan'])) {
-                                                        pesann($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['category'])) {
-                                                        category($oldDb, $newDb);
-                                                    }
-                                                    
-                                                    if (isset($_POST['jabdept'])) {
-                                                        jabdep($oldDb, $newDb);
-                                                    }
-                                                    
-                                                    if (isset($_POST['setpage'])) {
-                                                        pagee($oldDb, $newDb);
-                                                    }
-                                                    
-                                                    if (isset($_POST['roles'])) {
-                                                        roless($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['rules'])) {
-                                                        ruless($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['filePost'])) {
-                                                        postFile($oldDb, $newDb);
-                                                    }
-                                                    
-                                                    if (isset($_POST['setuser'])) {
-                                                        userd($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['profile'])) {
-                                                        profil($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['employess'])) {
-                                                        empploye($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['social'])) {
-                                                        social($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['vidios'])) {
-                                                        vidos($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['dinas'])) {
-                                                        dinas($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['counternews'])) {
-                                                        news($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['counterpost'])) {
-                                                        post($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['ppidpost'])) {
-                                                        ppdi($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['counterpengumumna'])) {
-                                                        pengumuman($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['download'])) {
-                                                        download($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['serv'])) {
-                                                        serv($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['visit'])) {
-                                                        visit($oldDb, $newDb);
-                                                    }
-                                                    if (isset($_POST['setform'])) {
-                                                        form($oldDb, $newDb);
-                                                    }
-                                                   
-                                                     // Jika tombol Migrate New Tables ALL ditekan
+                                                    // Jika tombol Migrate New Tables ditekan
                                                     if (isset($_POST['migrateAll'])) {
                                                         migrateAllTables($oldDb, $newDb);
                                                     }
-                                                    // Jika tombol Migrate All Tables ditekan DEFAULT
+
+                                                    // Jika tombol Migrate All Tables ditekan
                                                     if (isset($_POST['migrateTable'])) {
                                                         migrateNewTable($oldDb, $newDb);
                                                     }
+                                                  
                                                     ?>
                                                 </div>
                                             </div>
@@ -2190,7 +1788,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <button type="button" class="next action-button mt-3">Continue</button>
                         </fieldset>
-                        <!-- fieldsets -->
                         <fieldset>
                             <div class="row">
                                 <div class="col-lg-12">
@@ -2239,45 +1836,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     }
                                 }
                                 
-                                //tujuan
-                                $_dirPost	= '../images/post'; //POST
-                                $_dirEmp	= '../images/employees'; //EMP
-                                $_dirLHKPN	= '../images/lhkpn'; //LHKPN
-                                $_dirKategori = '../images/kategori'; //KATEGORY
-                                $_dirGalery = '../images/galery'; //GALERY & BANNER
-                                $_dirFiles = '../images/files';//FILES PENGUMUMAN
-                                $_dirProf = '../images/prof';//PROFIL
-                                $_dirLink	= '../images/socials'; //SOSMED
-
-                                
-                                    if (isset($_POST['move_image'])) {
-                                
-                                    $folder_move = array(
-                                        // banners
-                                        array('../web_x/images/uploads/banners', $_dirGalery),
-                                        array('../web_x/images/uploads/prestasi', $_dirGalery),
-                                        // end banner
-                            
-                                        // employess
-                                        array('../web_x/images/uploads/employees', $_dirEmp),
-                                        array('../web_x/images/uploads/leaders', $_dirEmp),
-                                        // end employess
-                            
-                                        // post
-                                        array('../web_x/images/uploads/events', $_dirPost),
-                                        array('../web_x/images/uploads/news', $_dirPost),
-                                        // end post
-                            
-                                        // socials
-                                        array('../web_x/images/uploads/inst', $_dirLink),
-                                        // end socials
-                            
-                                        // files
-                                        array('../web_x/downloads', $_dirFiles),
-                            
-                                        // end files
-     
-                                    );
+                                 //tujuan
+                                 $_dirPost	= '../images/post'; //POST
+                                 $_dirEmp	= '../images/employees'; //EMP
+                                 $_dirLHKPN	= '../images/lhkpn'; //LHKPN
+                                 $_dirKategori = '../images/kategori'; //KATEGORY
+                                 $_dirGalery = '../images/galery'; //GALERY & BANNER
+                                 $_dirFiles = '../images/files';//FILES PENGUMUMAN
+                                 $_dirProf = '../images/prof';//PROFIL
+                                 $_dirLink	= '../images/socials'; //SOSMED
+ 
+                                 
+                                     if (isset($_POST['move_image'])) {
+                                 
+                                     $folder_move = array(
+                                         // banners
+                                         array('../web_x/images/uploads/banners', $_dirGalery),
+                                         array('../web_x/images/uploads/prestasi', $_dirGalery),
+                                         // end banner
+                             
+                                         // employess
+                                         array('../web_x/images/uploads/employees', $_dirEmp),
+                                         array('../web_x/images/uploads/leaders', $_dirEmp),
+                                         // end employess
+                             
+                                         // post
+                                         array('../web_x/images/uploads/events', $_dirPost),
+                                         array('../web_x/images/uploads/news', $_dirPost),
+                                         // end post
+                             
+                                         // socials
+                                         array('../web_x/images/uploads/inst', $_dirLink),
+                                         // end socials
+                             
+                                         // files
+                                         array('../web_x/downloads', $_dirFiles),
+                             
+                                         // end files
+      
+                                     );
+                                 
                                 
                                     foreach ($folder_move as $folder_mv) {
                                         move_image($folder_mv[0], $folder_mv[1]);
@@ -2406,7 +2004,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Fungsi untuk menampilkan notifikasi
     function showNotification() {
-        document.getElementById('notification').style.display = 'block';
+    document.getElementById('notification').style.display = 'block';
     }
 
     // Fungsi untuk menyembunyikan notifikasi setelah beberapa waktu
